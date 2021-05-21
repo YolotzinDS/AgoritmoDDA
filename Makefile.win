@@ -1,0 +1,30 @@
+# Project: Project2_DDa
+# Makefile created by Dev-C++ 5.0.0.4
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = 
+OBJ      = main.o $(RES)
+LINKOBJ  = main.o $(RES)
+LIBS     = -L"C:/Users/YOLO/Documents/Zamora Dev. C++/Dev-Cpp/lib" -L"C:/Users/YOLO/Documents/Zamora Dev. C++/Dev-Cpp/lib/gcc" -static-libstdc++ -static-libgcc -lglut32 -lglu32 -lopengl32 -lwinmm -lgdi32 -lm  
+INCS     = -I"C:/Users/YOLO/Documents/Zamora Dev. C++/Dev-Cpp/include" 
+CXXINCS  = -I"C:/Users/YOLO/Documents/Zamora Dev. C++/Dev-Cpp/include" 
+BIN      = Project2_DDa.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS   = $(INCS)  
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Project2_DDa.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Project2_DDa.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
